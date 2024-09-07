@@ -6,7 +6,6 @@
 #define WORDSIZE 50
 
 int main(int argc, char* argv[]) {
-    
     char* DELIMITER = " ";
     char* str = "This is a test string. Please enter string and delimiter in the command line.";
 
@@ -14,18 +13,15 @@ int main(int argc, char* argv[]) {
         str = argv[1];
         DELIMITER = argv[2]; 
     } 
-   
+
     char* tokens[TOKENS];
     int counter_tokens =0;
     memset(tokens, 0, TOKENS);
-
     char token[WORDSIZE]; 
     memset(token, '\0', WORDSIZE);
-
     int counter=0;
 
     for (char* s=str;; s++){
-
         if (*s == *DELIMITER){
             if (token[0]!='\0') {
                 tokens[counter_tokens] = (char*) malloc(WORDSIZE*sizeof(char));
@@ -44,7 +40,15 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    // Find last element @last_token
+    char* last_token;
+    int i=0;
+    while(tokens[i]!=NULL) {
+        last_token = tokens[i++];
+    }
+
     printf("Number of words: %d\n", counter_tokens);
+
     // Display tokens
     printf("Words : [ ");
     for (int i=0;; i++){
@@ -56,12 +60,9 @@ int main(int argc, char* argv[]) {
         printf("'%s'", tokens[i]);
     }
 
-    //find number of elements
-    char* t;
-    int i=0;
-    while(tokens[i]!=NULL) {
-        t = tokens[i++];
-    }
+    printf("Last token :%s\n", last_token);
+
+
     
     // free memory
     for (int c=0; c<counter_tokens-1; c++ ) {

@@ -1,0 +1,4 @@
+#! /bin/bash
+clear
+gcc -o string_split string_split.c 
+./string_split $1 $2
