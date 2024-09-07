@@ -44,15 +44,16 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    printf("Counter tokens: %d\n", counter_tokens);
+    printf("Number of words: %d\n", counter_tokens);
     // Display tokens
-    printf("Tokens : [ ");
+    printf("Words : [ ");
     for (int i=0;; i++){
         if (tokens[i]==NULL) {
-            printf("]\n");
+            printf(" ]\n");
             break;
         }
-        printf("%s, ", tokens[i]);
+        if (i) {printf(", ");}
+        printf("'%s'", tokens[i]);
     }
 
     //find number of elements
