@@ -6,6 +6,7 @@
 #define WORDSIZE 50
 
 int main(int argc, char* argv[]) {
+
     char* DELIMITER = " ";
     char* str = "This is a test string. Please enter string and delimiter in the command line.";
 
@@ -13,6 +14,9 @@ int main(int argc, char* argv[]) {
         str = argv[1];
         DELIMITER = argv[2]; 
     } 
+
+    printf("%s\n", str);
+    printf("%s\n", DELIMITER);
 
     char* tokens[TOKENS];
     int counter_tokens =0;
@@ -50,7 +54,7 @@ int main(int argc, char* argv[]) {
     printf("Number of words: %d\n", counter_tokens);
 
     // Display tokens
-    printf("Words : [ ");
+    printf("Words:           [ ");
     for (int i=0;; i++){
         if (tokens[i]==NULL) {
             printf(" ]\n");
@@ -60,7 +64,7 @@ int main(int argc, char* argv[]) {
         printf("'%s'", tokens[i]);
     }
 
-    printf("Last token :%s\n", last_token);
+    printf("Last token:      %s\n\n", last_token);
 
 
     
