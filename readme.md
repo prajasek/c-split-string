@@ -1,6 +1,7 @@
 Usage:
 -------
-./string_split {string} {delimiter}
+./run {string} {delimiter}
+
 
 Examples:
 --------
