@@ -1,6 +1,4 @@
 #! /bin/bash
-clear
 gcc -o string_split string_split.c 
-echo $1 
-echo $2
+
 ./string_split "$1" "$2"

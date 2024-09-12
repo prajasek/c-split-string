@@ -6,40 +6,36 @@
 #define WORDSIZE 50
 
 int main(int argc, char* argv[]) {
-
     char* DELIMITER = " ";
     char* str = "This is a test string. Please enter string and delimiter in the command line.";
-
     if (argc==3) {
         str = argv[1];
         DELIMITER = argv[2]; 
     } 
+    
+    printf("\nString: %s\n", str);
+    printf("Delimiter: %s\n\n", DELIMITER);
 
-    printf("%s\n", str);
-    printf("%s\n", DELIMITER);
-
+    int counter=0, counter_tokens =0;
     char* tokens[TOKENS];
-    int counter_tokens =0;
-    memset(tokens, 0, TOKENS);
     char token[WORDSIZE]; 
+    memset(tokens, 0, TOKENS);
     memset(token, '\0', WORDSIZE);
-    int counter=0;
 
     for (char* s=str;; s++){
-        if (*s == *DELIMITER){
-            if (token[0]!='\0') {
+        if (*s == *DELIMITER || *s=='\0'){
+            if (token[0]!='\0') {               // empty string between delimiters OR delimiter at beginning or end.
                 tokens[counter_tokens] = (char*) malloc(WORDSIZE*sizeof(char));
                 strcpy(tokens[counter_tokens++], token);
-                memset(token, '\0', WORDSIZE);
-                counter=0;
             }
-        } else if (*s == '\0')  {
-            if (token[0]!='\0') {   
-                    tokens[counter_tokens++] = token; 
+            if (*s=='\0') {                     // end of string
+                tokens[counter_tokens] = NULL;
+                break;
             }
-            tokens[counter_tokens] = NULL;
-            break;
-        } else {
+            memset(token, '\0', WORDSIZE);
+            counter=0;
+        }
+        else {
             token[counter++]=*s;
         }
     }
@@ -51,26 +47,32 @@ int main(int argc, char* argv[]) {
         last_token = tokens[i++];
     }
 
-    printf("Number of words: %d\n", counter_tokens);
-
     // Display tokens
+    printf("Number of words: %d\n", counter_tokens);
     printf("Words:           [ ");
     for (int i=0;; i++){
         if (tokens[i]==NULL) {
             printf(" ]\n");
             break;
         }
-        if (i) {printf(", ");}
+        if (i) printf(", ");      // no comma at the start before elements
         printf("'%s'", tokens[i]);
     }
-
     printf("Last token:      %s\n\n", last_token);
 
+    /* 
+    Another way of iterating 
+    -----------------------------
+    char** word = tokens; 
+    while (*word != NULL) {
+        printf("TOKEN :%s\n", *word);
+        word++;
+    }
+    */
 
-    
     // free memory
-    for (int c=0; c<counter_tokens-1; c++ ) {
-        free(tokens[c]);
+    for (int index=0; index<counter_tokens-1; index++ ) {
+        free(tokens[index]);
     }
 
 }
