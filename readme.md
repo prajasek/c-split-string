@@ -2,10 +2,14 @@ Usage:
 -------
 ./string_split {string} {delimiter}
 
-Example:
+Examples:
 --------
-./string_split "GET FILE C:\\path\\to\\file" " "
 
-Output:
--------
-![image](https://github.com/user-attachments/assets/09f58783-f0ef-4e12-8e0a-6787b2a6f2fb)
+![image](https://github.com/user-attachments/assets/26283ed7-6710-402c-9e01-400e922901f9)
+
+To include whitespaces, use quotes to enclose string and delimiter:
+![image](https://github.com/user-attachments/assets/0a84bc02-d69b-4086-bb43-78bf1392ebd4)
+
+
+
+
