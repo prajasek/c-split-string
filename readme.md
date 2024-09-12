@@ -1,5 +1,5 @@
 Usage:
-
+-------
 ./string_split {string} {delimiter}
 
 Example:
