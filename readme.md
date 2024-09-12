@@ -8,9 +8,4 @@ Example:
 
 Output:
 -------
-String: GET FILE C:\path\to\file
-Delimiter:  
-
-Number of words: 3
-Words:           [ 'GET', 'FILE', 'C:\path\to\file' ]
-Last token:      C:\path\to\file
+![image](https://github.com/user-attachments/assets/09f58783-f0ef-4e12-8e0a-6787b2a6f2fb)
