@@ -71,7 +71,7 @@ int main(int argc, char* argv[]) {
     */
 
     // free memory
-    for (int index=0; index<counter_tokens-1; index++ ) {
+    for (int index=0; index<counter_tokens; index++ ) {
         free(tokens[index]);
     }
 
